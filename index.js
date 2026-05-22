@@ -1,8 +1,8 @@
 const root = document.querySelector("#root")
 const pagination = document.querySelector("#pagination")
 
-const LIMIT = 5 // мы сами решаем, сколько постов, хотим отображать
-const TOTAL_POSTS = 50 // обычно это число получаем с сервера
+const LIMIT = 10 // мы сами решаем, сколько постов, хотим отображать
+const TOTAL_POSTS = 100 // обычно это число получаем с сервера
 const TOTAL_PAGES = Math.ceil(TOTAL_POSTS / LIMIT) // количество постов постоянно меняется. периодически делаем запрос ( при загрузке следующей 10ки постов) и проверяем количество всего постов
 
 let currentPage = 1
@@ -54,6 +54,7 @@ function renderPagination() {
   prevButton.textContent = "Назад"
   prevButton.disabled = currentPage === 1
   prevButton.addEventListener("click", () => {
+    pagination.innerHTML = ""
     currentPage--
     loadPosts()
   })
@@ -80,6 +81,7 @@ function renderPagination() {
   nextButton.textContent = "Вперед"
   nextButton.disabled = currentPage === TOTAL_PAGES
   nextButton.addEventListener("click", () => {
+    pagination.innerHTML = ""
     currentPage++
     loadPosts()
   })
