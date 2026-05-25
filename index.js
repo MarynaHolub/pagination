@@ -92,12 +92,20 @@ function renderPagination() {
 const modal = document.getElementById("modal")
 const closeButton = document.getElementById("closeButton")
 const openButton = document.getElementById("openButton")
+const inputBtn = document.getElementById("inputBtn")
+const inputName = document.getElementById("inputName")
+const greeting = document.getElementById("greeting")
+
+inputBtn.addEventListener("click", () => {
+  let inputValue = inputName.value
+  greeting.textContent = `Hello, ${inputValue}!`
+})
 
 // openButton.addEventListener("click", () => {   // при нажатии кнопки
 
-// window.onload = () => {    // при загрузке окна
+// window.onload = () => {}     // 1 вариант при загрузке окна
 window.addEventListener("load", () => {
-  // при загрузке окна
+  // 2 вариант при загрузке окна
   modal.showModal()
   document.body.style.overflow = "hidden"
 })
@@ -114,7 +122,7 @@ modal.addEventListener("click", (e) => {
   }
 })
 
-//  сделать кнопку вперед
+// сделать кнопку вперед
 // залить на гитхаб и дать ссылку преподавателю
 
 // Добавить стили к модальному окну
